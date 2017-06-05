@@ -1,0 +1,246 @@
+<!-- Header -->
+<header>
+
+    <div class="container" id="maincontent" tabindex="-1">
+
+        <!--<img class="img-responsive" src="img/profile.png" alt="">-->
+        <div class="row">
+            <div class="intro-text">
+                <h4>Encontre serviços perto de você.</h4>
+            </div>
+        </div>
+
+
+        <form class="form-horizontal">
+            <fieldset>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="radius">Estado</label>
+                    <div class="col-md-4">
+                        <select id="state" ng-model="vm.model.state" ng-change="vm.buscarCidadesPorSigla(vm.model.state)" class="form-control" ng-options="st.sigla as st.nome for st in vm.states"
+                            required>
+                </select>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="property_type">Cidade</label>
+                    <div class="col-md-4">
+                        <select id="city" ng-model="vm.model.city" class="form-control" ng-options="st as st for st in vm.cities" required>
+                </select>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="price_min">Ramo de atividade</label>
+                    <div class="col-md-4">
+                        <select name="segmentTypeId" id="segmentTypeId" ng-model="vm.model.segmentId" class="form-control" ng-options="st.id as st.name for st in vm.segmentType"
+                            required>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="submit"></label>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary btn-block" ng-disabled="form.$invalid" ng-click="vm.btnBuscar();">Buscar</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </div>
+
+
+</header>
+
+        <img src="img/bkg.jpg" class="img-responsive" alt="Cabin">
+<!-- Portfolio Grid Section -->
+<!--<section id="portfolio">
+    <div class="container">
+        <div class="row">
+            <img src="img/bkg.jpg" class="img-responsive" alt="Cabin">
+        </div>
+    </div>
+</section>-->
+
+<!-- About Section -->
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Sobre</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-4">
+                <p>O site tem como objetivo encontrar serviços localizados em todas as regiões do Brasil. Através do nosso sistema,
+                    o prestador de serviço cadastra seu serviço de forma fácil e na mesma hora fica disponível para todos
+                    os usuários visualizarem.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3>Fale Conosco</h3>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+
+               <form name="formContact" novalidate>
+                    <div class="form-group" ng-class="{'has-error':formContact.name.$invalid && formContact.name.$dirty}">
+                        <label class="control-label" for="name">Nome</label>
+                        <input class="form-control" name="name" id="name" ng-model="vm.email.name" type="text" placeholder="Nome..." minlength="2"
+                            maxlength="50" required>
+                    </div>
+
+
+                    <div class="form-group" ng-class="{'has-error':formContact.email.$invalid && formContact.email.$dirty}">
+                        <label class="control-label" for="email">Email</label>
+                        <input class="form-control" name="email" id="email" ng-model="vm.email.email" type="text" placeholder="Email..." minlength="2"
+                            maxlength="50"  required>
+                    </div>
+
+                    <div class="form-group" ng-class="{'has-error':formContact.phone.$invalid && formContact.phone.$dirty}">
+                        <label class="control-label" for="phone">Celular</label>
+                        <input class="form-control" 
+                            name="phone" 
+                            id="phone" 
+                            ng-model="vm.email.phone" 
+                            type="text" 
+                            placeholder="Celular..." 
+                            ui-br-phone-number  
+                            required>
+                    </div>
+
+
+                    <div class="form-group" ng-class="{'has-error':formContact.message.$invalid && formContact.message.$dirty}">
+                        <label class="control-label" for="message">Mensagem</label>
+                        <textarea rows="5" class="form-control" name="message" id="message" ng-model="vm.email.message" type="text" placeholder="Mensagem..."
+                            minlength="5" maxlength="700" required>
+                            </textarea>
+                    </div>
+
+
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-primary btn-lg" ng-disabled="formContact.$invalid" ng-click="vm.btnEnviar();">Enviar</button>                         
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-4">
+                    <h3>Localização</h3>
+                    <p> Av. Alfredo Balthazar da Silveira, 580
+                        <br>Recreio dos Bandeirantes, Rio de Janeiro </p>
+                </div>
+                <div class="footer-col col-md-4">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; 2017
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+    <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+</div>
+
+<!-- Portfolio Modals -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>Project Title</h2>
+                        <hr class="star-primary">
+                        <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
+                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
+                            <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download
+                            their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                        <ul class="list-inline item-details">
+                            <li>Client:
+                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                            </li>
+                            <li>Date:
+                                <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                            </li>
+                            <li>Service:
+                                <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--</body>-->
+
+<!--</html>-->

@@ -1,0 +1,38 @@
+<div class="col-md-offset-4 col-md-4">
+    <div class="block-header text-center">
+        <h2>Autenticação
+            <small>Informe os dados necessários para acesso</small>
+        </h2>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form name="form" ng-submit="Login();" novalidate>
+
+                <div class="form-group" ng-class="{'has-error':form.email.$invalid && form.email.$dirty}">
+                    <label for="email">E-mail:</label>
+                    <input type="text" 
+                        class="form-control" 
+                        name="email" 
+                        id="email" 
+                        ng-model="user.email"
+                        required
+                        >
+                </div>
+                <div class="form-group"  ng-class="{'has-error':form.password.$invalid && form.password.$dirty}">
+                    <label for="password">Senha:</label>
+                    <input type="password" 
+                        class="form-control" 
+                        name="password" 
+                        id="password" 
+                        ng-model="user.password"
+                        ng-minlength="4"
+                        ng-maxlength="20"
+                        required
+                        >
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" ng-disabled="form.$invalid">Entrar</button>
+            </form>
+        </div>         
+    </div>    
+           Não possui conta ? <a href="#!/account/register">Clique aqui para se registrar</a>
+</div>

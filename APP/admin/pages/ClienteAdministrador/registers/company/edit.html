@@ -1,0 +1,135 @@
+<div class="block-header">
+    <h2>Edição
+        <small>Parâmetros do sistema</small>
+    </h2>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="panel-header">
+                    <h2>Editar empresa</h2>                    
+                </div>
+                
+                <form name="formService" novalidate>
+                    <div class="form-group"  ng-class="{'has-error':formService.segmentId.$invalid && formService.segmentId.$dirty}">
+                        <label for="name">Tipo de serviço:</label>
+                        <select name="segmentId" 
+                                id="segmentId" 
+                                ng-model="vm.company.segmentId"
+                                class="form-control"
+                                ng-options="st.id as st.name for st in vm.segmentType"
+                                required
+                        >
+                        </select>
+                    </div>
+                        
+                    <div class="form-group"   ng-class="{'has-error':formService.name.$invalid && formService.name.$dirty}">
+                        <label class="control-label" for="name">Nome</label>
+                        <input class="form-control" 
+                            id="name" 
+                            name="name"
+                            ng-model="vm.company.name"
+                            type="text" 
+                            placeholder=""
+                            ng-minlength="2"
+                            ng-maxlength="50"
+                            required>
+                    </div>
+                    <div class="form-group"   ng-class="{'has-error':formService.description.$invalid && formService.description.$dirty}">
+                        <label class="control-label" for="description">Descrição</label>
+                        <input class="form-control" 
+                            id="description" 
+                            name="description"
+                            ng-model="vm.company.description"
+                            type="text" 
+                            placeholder="Descrição do serviço ..."
+                            ng-minlength="2"
+                            ng-maxlength="50" 
+                            required >
+                    </div>
+
+                 <div class="form-group"   ng-class="{'has-error':formService.postCode.$invalid && formService.postCode.$dirty}">
+                        <label class="control-label" for="postCode">CEP</label>
+                        <input class="form-control" 
+                            id="postCode" 
+                            name="postCode"
+                            ng-model="vm.company.postCode"
+                            ng-change="vm.buscarCEP(vm.company.postCode)"
+                            type="text" 
+                            placeholder="CEP..."
+                            ui-br-cep-mask
+                            required >
+                    </div>
+
+                     <div class="form-group"   ng-class="{'has-error':formService.address.$invalid && formService.address.$dirty}">
+                        <label class="control-label" for="address">Endereço</label>
+                        <input class="form-control" 
+                            id="address" 
+                            name="address"
+                            ng-model="vm.company.address"
+                            type="text" 
+                            placeholder="Endereço..."
+                            ng-minlength="2"
+                            ng-maxlength="50" 
+                            required >
+                    </div>
+
+                     <div class="form-group"   ng-class="{'has-error':formService.addressComplement.$invalid && formService.addressComplement.$dirty}">
+                        <label class="control-label" for="addressComplement">Complemento</label>
+                        <input class="form-control" 
+                            id="addressComplement" 
+                            name="addressComplement"
+                            ng-model="vm.company.addressComplement"
+                            type="text" 
+                            placeholder="Complemento ..."
+                            ng-minlength="2"
+                            ng-maxlength="50" 
+                            required >
+                    </div>
+
+                    
+                
+                     <div class="form-group"   ng-class="{'has-error':formService.state.$invalid && formService.state.$dirty}">
+                        <label class="control-label" for="state">Estado</label>
+                         <select id="state" 
+                                 ng-model="vm.company.state" 
+                                 ng-change="vm.buscarCidadesPorSigla(vm.company.state)"
+                                 class="form-control"
+                                 ng-options="st.sigla as st.nome for st in vm.states"
+                                 required>
+                         </select>
+                    </div>
+
+                    <div class="form-group"   ng-class="{'has-error':formService.city.$invalid && formService.city.$dirty}">
+                        <label class="control-label" for="city">Cidade</label>
+                            <select id="city" 
+                                    ng-model="vm.company.city" 
+                                    class="form-control"
+                                    ng-options="st as st for st in vm.cities"
+                                    required>
+                        </select>
+                    </div>
+
+
+                      <div class="form-group"   ng-class="{'has-error':formService.district.$invalid && formService.district.$dirty}">
+                        <label class="control-label" for="district">Bairro</label>
+                        <input class="form-control" 
+                            id="district" 
+                            name="district"
+                            ng-model="vm.company.district"
+                            type="text" 
+                            placeholder="Bairro..."
+                            ng-minlength="2"
+                            ng-maxlength="50" 
+                            required >
+                    </div>
+                                             
+                </form>
+                <button class="btn btn-primary" ng-disabled="formService.$invalid" ng-click="vm.btnSave();">Salvar</button>
+                <button class="btn btn-danger" ng-click="vm.btnCancel();">Cancelar</button>                      
+            </div>
+        </div>    
+    </div>    
+</div>

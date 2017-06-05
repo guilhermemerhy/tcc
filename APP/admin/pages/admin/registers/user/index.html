@@ -1,0 +1,53 @@
+
+<div class="block-header">
+    <h2>Cadastro
+        <small>Parâmetros do sistema</small>
+    </h2>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="panel-header">
+                    <h2>Cadastro de usuário</h2>
+                    <small>Listagem de usuários</small>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                         <button class="btn btn-primary btn-xs" ng-click="btnNew()">Inserir usuário</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                            <input type="text" class="form-control" ng-model="searchText" placeholder="Pesquisar ..."/>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>                            
+                            <th ng-click="sortType = 'email'; sortReverse = !sortReverse">Email</th>
+                            <th ng-click="sortType = 'isActive'; sortReverse = !sortReverse">Ativado</th>   
+                            <th ng-click="sortType = 'isActive'; sortReverse = !sortReverse">Administrador</th>           
+                            <th></th>                                                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="s in userData | orderBy:sortType:sortReverse | filter:searchText track by s.id">
+                            <td>{{s.email}}</td>
+                            <td><button class="btn btn-xs btn-success" ng-click="btnDesactivate(s)" ng-if="s.isActive"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+                                <button class="btn btn-xs btn-default" ng-click="btnActivate(s)" ng-if="!s.isActive"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+                            </td>
+                            <td><button class="btn btn-xs btn-success" ng-click="userData.btnTurnSimpleUser(s)" ng-if="s.isAdmin"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+                                <button class="btn btn-xs btn-default" ng-click="userData.btnTurnAdmin(s)" ng-if="!s.isAdmin"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+                            </td>                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+    </div>    
+</div>
+
+                    

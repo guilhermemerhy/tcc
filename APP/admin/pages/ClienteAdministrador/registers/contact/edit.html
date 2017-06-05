@@ -1,0 +1,83 @@
+<div class="block-header">
+    <h2>Cadastro
+        <small>Parâmetros do sistema</small>
+    </h2>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="panel-header">
+                    <h2>Editar Contato</h2>                    
+                </div>
+                
+                <form name="formContact" novalidate>
+                    <div class="form-group"  ng-class="{'has-error':formService.companysId.$invalid && formService.companysId.$dirty}">
+                    <label for="name">Empresa:</label>
+                    <select name="companysId" 
+                            id="companysId" 
+                            ng-model="vm.contact.companyId"
+                            class="form-control"
+                            ng-options="st.id as st.name for st in vm.companys"
+                            required
+                            >
+                        </select>
+                    </div>
+
+                    <div class="form-group"   ng-class="{'has-error':formContact.responsableName.$invalid && formContact.responsableName.$dirty}">
+                        <label class="control-label" for="responsableName">Nome responsável</label>
+                        <input class="form-control"
+                            name="responsableName" 
+                            id="responsableName" 
+                            ng-model="vm.contact.responsableName"
+                            type="text" 
+                            placeholder="Nome do responsável..." 
+                            minlength="2"
+                            maxlength="100"
+                            required>
+                    </div>
+                    
+                      <div class="form-group"   ng-class="{'has-error':formContact.email.$invalid && formContact.email.$dirty}">
+                        <label class="control-label" for="email">Email</label>
+                        <input class="form-control" 
+                            name="email"
+                            id="email" 
+                            ng-model="vm.contact.email"
+                            type="text" 
+                            placeholder="Email..." 
+                            required >
+                    </div>
+                    
+                    
+                      <div class="form-group"   ng-class="{'has-error':formContact.phone.$invalid && formContact.phone.$dirty}">
+                        <label class="control-label" for="phone">Telefone</label>
+                        <input class="form-control" 
+                            name="phone"
+                            id="phone" 
+                            ng-model="vm.contact.phone"
+                            type="text" 
+                            ui-br-phone-number 
+                            placeholder="Telefone..." 
+                            required >
+                    </div>
+                    
+                    
+                      <div class="form-group"   ng-class="{'has-error':formContact.cellPhone.$invalid && formContact.cellPhone.$dirty}">
+                        <label class="control-label" for="cellPhone">Celular</label>
+                        <input class="form-control" 
+                            name="cellPhone"
+                            id="cellPhone" 
+                            ng-model="vm.contact.cellPhone"
+                            type="text"                             
+                            placeholder="Celular..." 
+                            ui-br-phone-number 
+                            required>
+                    </div>
+                </form>
+                <button class="btn btn-primary" ng-disabled="formContact.$invalid" ng-click="vm.btnSave();">Salvar</button>
+                <button class="btn btn-danger" ng-click="vm.btnCancel();">Cancelar</button>               
+            </div>
+        </div>    
+    </div>    
+</div>

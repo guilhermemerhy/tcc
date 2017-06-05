@@ -1,0 +1,161 @@
+
+<section>
+
+    <div class="container" id="maincontent" tabindex="-1">
+        <div class="row">
+        <div class="block-header">
+            <hr/>
+            <h5 class="col-xs-offset-2" style="color: #039be5;">{{vm.state}} > {{vm.city}} > {{vm.segment}} </h5>   
+
+             <span> Modo de visualização: &nbsp&nbsp 
+                <label class="radio-inline">
+                    <input type="radio" ng-model="filtro" value="1" ng-change='vm.visualizacao(1)'  ng-checked="true"> Todos                    
+                </label>   
+                <label class="radio-inline">
+                      <input type="radio" ng-model="filtro" value="2" ng-change='vm.visualizacao(2)'> Mapa
+                </label>
+                </span>
+            <hr/>
+        </div>
+    
+        
+    <div class="col-md-4" ng-repeat="detail in vm.details" ng-show="vm.exibirTodos">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>
+                    <span style="color:#337ab7; font-size: 18px; font-weight: 500; line-height: 1.11;">{{detail.name}}</span><br/>
+                    <span style="color:#8392a7; font-size: 11px; font-weight: 400;">{{detail.description}}</span>
+                </p>
+                <hr/>
+                <p>
+                    <span style="height: 10px;font-size: 10px;font-weight: 300;line-height: 1;letter-spacing: 1.6px;color: #8695aa;margin-bottom: 6px;">SEGMENTO</span><br/>
+                    <span style="color:#3b4859; font-size: 12.5px;font-weight: 400;line-height: 1.36;">{{detail.segment.name}}</span> 
+                </p>
+                <p>
+                    <span style="height: 10px;font-size: 10px;font-weight: 300;line-height: 1;letter-spacing: 1.6px;color: #8695aa;margin-bottom: 6px;">LOCALIZAÇÃO</span><br/>
+                    <span style="color:#3b4859; font-size: 12.5px;font-weight: 400;line-height: 1.36;">{{detail.address}} - {{detail.district}}, {{detail.city}} - {{detail.state}}</span>
+                </p>
+                <p>
+                    <button  class="btn btn-primary btn-block"  ng-click="vm.btnDetails($index);" >Ver Contato</button>
+                </p>
+            </div>
+        </div>
+    </div>
+        
+    </div>
+
+    <ng-map center="[-18.055281, -48.152711]" 
+            default-style="false" style="height:500px; width:100%" 
+            zoom="11" 
+            zoom-to-include-markers="auto"
+            ng-if="!vm.exibirTodos">
+
+    <marker id="{{p.id}}" 
+        position="{{p.pos}}"
+        ng-repeat="p in vm.positions"
+        on-click="vm.showDetail(p.id)">
+    </marker>
+
+     <info-window id="foo">
+        <div ng-non-bindable="">
+           <p>
+                <span style="color:#337ab7; font-size: 15px; font-weight: 500; line-height: 1.11;">{{vm.marker.name}}</span><br/>
+                <span style="color:#8392a7; font-size: 11px; font-weight: 400;">{{vm.marker.description}}</span>
+           </p>
+                <hr/>
+            <p>
+                <span style="height: 10px;font-size: 10px;font-weight: 300;line-height: 1;letter-spacing: 1.6px;color: #8695aa;margin-bottom: 6px;">SEGMENTO</span><br/>
+                <span style="color:#3b4859; font-size: 12.5px;font-weight: 400;line-height: 1.36;">{{vm.marker.segment.name}}</span> 
+            </p>
+            <p>
+                <span style="height: 10px;font-size: 10px;font-weight: 300;line-height: 1;letter-spacing: 1.6px;color: #8695aa;margin-bottom: 6px;">LOCALIZAÇÃO</span><br/>
+                <span style="color:#3b4859; font-size: 12.5px;font-weight: 400;line-height: 1.36;">{{vm.marker.address}}, {{vm.marker.addressComplement}} - {{vm.marker.district}}, {{vm.marker.city}} - {{vm.marker.state}}</span>
+            </p>
+        </div>
+      </info-window>
+
+    </ng-map>
+
+</section>
+
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-4">
+                    <h3>Localização</h3>
+                    <p> Av. Alfredo Balthazar da Silveira, 580
+                        <br>Recreio dos Bandeirantes, Rio de Janeiro </p>
+                </div>
+                <div class="footer-col col-md-4">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; 2017
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modalCreate">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title">Detalhes</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Email:</label>
+                    <div class="col-md-10">
+                        <label>{{ vm.modal.email }}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Telefone:</label>
+                    <div class="col-md-10">
+                        <label>({{ vm.modal.phone.substring(0,2) }}){{ vm.modal.phone.substring(3, vm.modal.phone.length) }}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Celular:</label>
+                    <div class="col-md-10">
+                        <label>({{ vm.modal.cellPhone.substring(0,2) }}) {{ vm.modal.cellPhone.substring(3, vm.modal.cellPhone.length) }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+

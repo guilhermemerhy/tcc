@@ -1,0 +1,117 @@
+<div class="block-header">
+    <h2>Cadastro
+        <small>Parâmetros do sistema</small>
+    </h2>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="panel-header">
+                    <h2>Cadastro de usuário</h2>
+                    <small>Inserção de novo usuário</small>
+                </div>
+                <form name="form" novalidate>
+                    <!--<div class="form-group"  ng-class="{'has-error':form.name.$invalid && form.name.$dirty}">
+                        <label for="userType">Tipo de usuário:</label>
+                        <select name="userType" id="userType" ng-model="model.userType" class="form-control" required>
+                            <option value="1">Administrador</option>
+                            <option value="2" selected="selected">Cliente</option>
+                        </select>
+                    </div>
+                    <div class="form-group"  ng-class="{'has-error':form.name.$invalid && form.name.$dirty}">
+                        <label for="name">Nome:</label>
+                        <input type="text" 
+                                name="name" 
+                                id="name" 
+                                ng-model="model.name"
+                                class="form-control"
+                                ng-minlength="2"
+                                ng-maxlength="50"
+                                required
+                        >
+                    </div>
+                    
+                    <div class="form-group"  ng-class="{'has-error':form.lastname.$invalid && form.lastname.$dirty}">
+                        <label for="lastname">Sobrenome:</label>
+                        <input type="text" 
+                                name="lastname" 
+                                id="lastname" 
+                                ng-model="model.lastName"
+                                class="form-control"
+                                ng-minlength="2"
+                                ng-maxlength="50"
+                                required
+                        >
+                    </div>-->
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group"  ng-class="{'has-error':form.email.$invalid && form.email.$dirty}">
+                                <label for="email">E-mail:</label>
+                                <input type="text" 
+                                        name="email" 
+                                        id="email" 
+                                        ng-model="model.email"
+                                        class="form-control"
+                                        ng-minlength="2"
+                                        ng-maxlength="150"
+                                        required
+                                >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"  ng-class="{'has-error':form.emailConfirmation.$invalid && form.emailConfirmation.$dirty}">
+                                <label for="emailConfirmation">Confirmação de e-mail:</label>
+                                <input type="text" 
+                                        name="emailConfirmation" 
+                                        id="emailConfirmation" 
+                                        ng-model="model.emailConfirmation"
+                                        class="form-control"
+                                        ng-minlength="2"
+                                        ng-maxlength="150"
+                                        ng-match="model.email"
+                                        required
+                                >
+                            </div>        
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group"  ng-class="{'has-error':form.password.$invalid && form.password.$dirty}">
+                                <label for="password">Senha:</label>
+                                <input type="password" 
+                                        name="password" 
+                                        id="password" 
+                                        ng-model="model.password"
+                                        class="form-control"
+                                        ng-minlength="2"
+                                        ng-maxlength="50"
+                                        required
+                                >
+                            </div>       
+                        </div>
+                        <div class="col-md-6">
+                             <div class="form-group"  ng-class="{'has-error':form.passwordConfirmation.$invalid && form.passwordConfirmation.$dirty}">
+                                <label for="passwordConfirmation">Confirmação de senha:</label>
+                                <input type="password" 
+                                        name="passwordConfirmation" 
+                                        id="passwordConfirmation" 
+                                        ng-model="model.passwordConfirmation"
+                                        class="form-control"
+                                        ng-minlength="2"
+                                        ng-maxlength="50"
+                                        required
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid"  ng-click="btnSave()" >Salvar</button>
+                <button type="button" class="btn btn-danger" ng-click="btnCancel()">Cancelar</button>
+            </div>
+        </div>    
+    </div>    
+</div>

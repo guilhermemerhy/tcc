@@ -1,0 +1,48 @@
+{
+  "name": "br-cidades-estados",
+  "version": "1.1.0",
+  "homepage": "https://github.com/alairjt/br-cidades-estados",
+  "authors": [
+    "alair.tavares <alair.tavares@nexxera.com>"
+  ],
+  "description": "Utilitário AngularJS - Cidades e Estados brasileiros.",
+  "main": "dist/cidades-estados.js",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-mocks": "^1.5.0",
+    "jquery": "^3.1.0"
+  },
+  "keywords": [
+    "AngularJS",
+    "Angular",
+    "directive",
+    "onenter",
+    "enter",
+    "press",
+    "key",
+    "onkeypress",
+    "keypress",
+    "custom",
+    "apply",
+    "generic",
+    "value"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.0",
+    "commit": "a365e031935a870a3aada4982377684cf09412b3"
+  },
+  "_source": "https://github.com/alairjt/br-cidades-estados.git",
+  "_target": "^1.1.0",
+  "_originalSource": "br-cidades-estados",
+  "_direct": true
+}

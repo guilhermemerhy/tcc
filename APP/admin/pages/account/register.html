@@ -1,0 +1,71 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="panel-header">
+                    <h2>Cadastrar conta</h2>                    
+                </div>
+                
+                <form name="formService" novalidate>
+                        
+                    <div class="form-group"   ng-class="{'has-error':formService.email.$invalid && formService.email.$dirty}">
+                        <label class="control-label" for="email">Email</label>
+                        <input class="form-control" 
+                            id="email" 
+                            name="email"
+                            ng-model="register.email"
+                            type="text" 
+                            placeholder="Email"
+                            ng-minlength="2"
+                            ng-maxlength="50"
+                            required>
+                    </div>
+
+                    <div class="form-group"   ng-class="{'has-error':formService.emailConfirmation.$invalid && formService.emailConfirmation.$dirty}">
+                        <label class="control-label" for="emailConfirmation">Confirmar Email</label>
+                        <input class="form-control" 
+                            id="emailConfirmation" 
+                            name="emailConfirmation"
+                            ng-model="register.emailConfirmation"
+                            type="text" 
+                            placeholder="Confirmação Email"
+                            ng-minlength="5"
+                            ng-maxlength="50"
+                            required>
+                    </div>
+
+                    <div class="form-group"   ng-class="{'has-error':formService.password.$invalid && formService.password.$dirty}">
+                        <label class="control-label" for="password">Senha</label>
+                        <input class="form-control" 
+                            id="password" 
+                            name="password"
+                            ng-model="register.password"
+                            type="password" 
+                            placeholder="Senha"
+                            ng-minlength="5"
+                            ng-maxlength="50" 
+                            required >
+                    </div>
+                    
+                    <div class="form-group"   ng-class="{'has-error':formService.passwordConfirmation.$invalid && formService.passwordConfirmation.$dirty}">
+                        <label class="control-label" for="passwordConfirmation">Confirmar senha</label>
+                        <input class="form-control" 
+                            id="passwordConfirmation" 
+                            name="passwordConfirmation"
+                            ng-model="register.passwordConfirmation"
+                            type="password" 
+                            placeholder="Confirmar Senha"   
+                            ng-minlength="5"
+                            ng-maxlength="50"                     
+                            required >
+                    </div>
+                    
+                    
+                </form>
+                <button class="btn btn-primary" ng-disabled="formService.$invalid" ng-click="btnRegister();">Salvar</button>
+                <button class="btn btn-danger" ng-click="btnCancel();">Cancelar</button>                      
+            </div>
+        </div>    
+    </div>    
+</div>
