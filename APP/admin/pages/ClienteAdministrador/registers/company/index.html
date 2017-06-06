@@ -27,7 +27,7 @@
                     <thead>
                         <tr>                            
                             <th ng-click="sortType = 'email'; sortReverse = !sortReverse">Nome</th>
-                            <th ng-click="sortType = 'phone'; sortReverse = !sortReverse">Descrição</th>
+                            <!--<th ng-click="sortType = 'phone'; sortReverse = !sortReverse">Descrição</th>-->
                              <th ng-click="sortType = 'phone'; sortReverse = !sortReverse">Ramo Atividade</th>
                             <th ng-click="sortType = 'isActive'; sortReverse = !sortReverse">Ativado</th>            
                             <th></th>                                                      
@@ -36,7 +36,7 @@
                     <tbody>
                         <tr ng-repeat="s in vm.companys | orderBy:sortType:sortReverse | filter:searchText track by s.id">
                             <td>{{s.name}}</td>
-                            <td>{{s.description}}</td>
+                            <!--<td>{{s.description}}</td>-->
                             <td>{{s.segment.name}}
                             <td><button class="btn btn-xs btn-success" ng-click="vm.btnDesactivate(s)" ng-if="s.isActive"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
                                 <button class="btn btn-xs btn-default" ng-click="vm.btnActive(s)" ng-if="!s.isActive"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
