@@ -8,19 +8,17 @@
     function DetailsController($rootScope, $state, SETTINGS, $stateParams, NgMap){
         var vm = this;
 
+
         if($rootScope.details.length == 0){
             $state.go("home"); 
         }
         else
         {
-
             vm.details = $rootScope.details;
             vm.state = $rootScope.details[0].state;
             vm.city = $rootScope.details[0].city;
             vm.segment = $rootScope.details[0].segment.name;
-            console.log($rootScope.details);
-           
-
+                       
             vm.btnDetails = btnDetails;
             vm.modal = [];
 

@@ -51,7 +51,7 @@
 
         vm.model.segmentId = 1; // Para exibição default             
 
-        function Buscar(){
+        function Buscar(){           
             SearchFactory.search(vm.model)
 				.then(success)
 				.catch(fail);
@@ -62,19 +62,18 @@
                 if(data.data.length == 0)
                      toastr.info("Não foi encontrado nenhum serviço desse tipo no local desejado", "Desculpe!");
                 else{                   
-                    $rootScope.details = data.data;
+                    $rootScope.details = data.data;                    
                     $state.go("details"); 
                 }
 			}
 			
-			function fail(error){
-                    ListSegment();
-                    // if(error.status == 401){
-                    //     toastr.error("Acesso não autorizado pelo servidor", error.statusText);
+			function fail(error){                    
+                    if(error.status == 401){
+                        toastr.error("Acesso não autorizado pelo servidor", error.statusText);
                        
-                    // }else
-                    //     for(var x = 0; x < error.data.errors.length; x++)
-                    //         toastr.error(error.data.errors[x].value, error.data.errors[x].key);
+                    }else
+                        for(var x = 0; x < error.data.errors.length; x++)
+                            toastr.error(error.data.errors[x].value, error.data.errors[x].key);
                 }
         }
         
@@ -90,12 +89,13 @@
             }
             
             function error(error){
-                if(error.status == 401){
-                        toastr.error("Acesso não autorizado pelo servidor", error.statusText);
-                         $state.go("account.logout");
-                    }else
-                        for(var x = 0; x < error.data.errors.length; x++)
-                            toastr.error(error.data.errors[x].value, error.data.errors[x].key);
+                ListSegment();
+                // if(error.status == 401){
+                //         toastr.error("Acesso não autorizado pelo servidor", error.statusText);
+                //          $state.go("account.logout");
+                //     }else
+                //         for(var x = 0; x < error.data.errors.length; x++)
+                //             toastr.error(error.data.errors[x].value, error.data.errors[x].key);
             }
         }
 
