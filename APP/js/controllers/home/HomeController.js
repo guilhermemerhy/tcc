@@ -89,13 +89,7 @@
             }
             
             function error(error){
-                ListSegment();
-                // if(error.status == 401){
-                //         toastr.error("Acesso não autorizado pelo servidor", error.statusText);
-                //          $state.go("account.logout");
-                //     }else
-                //         for(var x = 0; x < error.data.errors.length; x++)
-                //             toastr.error(error.data.errors[x].value, error.data.errors[x].key);
+                ListSegment();             
             }
         }
 
@@ -103,8 +97,7 @@
             vm.cities = brCidadesEstados.buscarCidadesPorSigla(sigla);
         }
 
-        function SendEmail(){
-            console.log(vm.email);
+        function SendEmail(){            
             HelperFactory.sendEmail(vm.email)
 				.then(success)
 				.catch(fail);
@@ -115,14 +108,10 @@
                
 			}
 			
-			function fail(error){
-                    if(error.status == 401){
-                        toastr.error("Acesso não autorizado pelo servidor", error.statusText);
-                       
-                    }else
-                        for(var x = 0; x < error.data.errors.length; x++)
-                            toastr.error(error.data.errors[x].value, error.data.errors[x].key);
-                }
+			function fail(error)
+            {
+                 toastr.error("Desculpe", "Não foi possível enviar a mensagem!");
+            }
         }
         
 

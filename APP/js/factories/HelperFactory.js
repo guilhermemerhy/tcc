@@ -15,8 +15,8 @@
             return $http.get(SETTINGS.SERVICE_URL + 'api/v1/segment/GetSegment/', $rootScope.header);
         }
 
-        function sendEmail(id){
-            return $http.get(SETTINGS.SERVICE_URL + 'api/v1/contact/sendEmail/', $rootScope.header);
+        function sendEmail(model){
+            return $http.post(SETTINGS.SERVICE_URL + 'api/v1/helper/sendEmail/', model, $rootScope.header);
         }
     }
 })();
