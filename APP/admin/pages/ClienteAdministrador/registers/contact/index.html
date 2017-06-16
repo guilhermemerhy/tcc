@@ -26,15 +26,13 @@
                 <table class="table table-striped table-hover ">
                     <thead>
                         <tr>
-                            <th ng-click="sortType = 'responsibleName'; sortReverse = !sortReverse">Nome do responsável</th>
                             <th ng-click="sortType = 'email'; sortReverse = !sortReverse">E-mail</th>
                             <th ng-click="sortType = 'phone'; sortReverse = !sortReverse">Telefone</th>
                             <th ng-click="sortType = 'cellphone'; sortReverse = !sortReverse">Celular</th>                            
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="c in vm.contact | orderBy:sortType:sortReverse | filter:searchText track by $index">
-                            <td>{{c.responsableName}}</td>
+                        <tr ng-repeat="c in vm.contact | orderBy:sortType:sortReverse | filter:searchText track by $index">                           
                             <td>{{c.email}}</td>
                             <td>{{c.phone}}</td>
                             <td>{{c.cellPhone}}</td>
